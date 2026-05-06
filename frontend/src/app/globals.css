@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #080e1d;
+    --foreground: #e2e8ff;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+}
+
+/* ── Glass ────────────────────────────────────────────────────────────── */
+@layer utilities {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-2xl border border-white/[0.08] shadow-2xl;
+  }
+  .glass-strong {
+    @apply bg-white/[0.07] backdrop-blur-3xl border border-white/[0.12] shadow-2xl;
+  }
+  /* Legacy alias kept for existing pages */
+  .glass-panel        { @apply glass; }
+  .glass-panel-active { @apply bg-white/[0.09] backdrop-blur-3xl border border-primary/30 shadow-2xl; }
+
+  /* Input — NO left-padding set here on purpose.
+     Always add pl-5 (no icon) or pl-11 (with icon) alongside this class. */
+  .input-glass {
+    @apply w-full bg-white/[0.06] border border-white/10 rounded-2xl
+           py-3.5 pr-5 text-foreground text-sm placeholder:text-white/30
+           focus:outline-none focus:border-primary/60 focus:bg-white/[0.09]
+           transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply w-full bg-gradient-to-r from-primary-container to-primary/80
+           hover:from-primary/80 hover:to-primary-container/90
+           text-foreground font-semibold rounded-2xl py-3.5 transition-all duration-200
+           shadow-lg shadow-primary/20 hover:shadow-primary/30
+           hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .text-glow    { text-shadow: 0 0 30px rgba(165,138,255,0.7); }
+  .text-glow-sm { text-shadow: 0 0 16px rgba(165,138,255,0.45); }
+
+  .bg-glow-pulse { animation: glow-pulse 5s ease-in-out infinite alternate; }
+  .bg-glow-pulse-slow { animation: glow-pulse 8s ease-in-out infinite alternate; }
+}
+
+@keyframes glow-pulse {
+  0%   { opacity: 0.4; filter: blur(70px); }
+  100% { opacity: 0.7; filter: blur(100px); }
+}
+
+/* ── Chrome autofill override ─────────────────────────────────────────── */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #e2e8ff !important;
+  -webkit-box-shadow: 0 0 0 1000px #131929 inset !important;
+  caret-color: #e2e8ff;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(165,138,255,0.18); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(165,138,255,0.32); }
+
+* { box-sizing: border-box; }

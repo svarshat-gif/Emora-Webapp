@@ -1,0 +1,8 @@
+-r requirements.txt
+pytest
+pytest-asyncio
+pytest-env
+httpx
+pytest-cov
+factory-boy
+faker

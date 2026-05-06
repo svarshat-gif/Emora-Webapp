@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\Shreyyas\\\\Downloads\\\\Emora Webapp\\\\frontend\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object FullName | Format-List)",
+      "PowerShell(cd \"c:\\\\Users\\\\Shreyyas\\\\Downloads\\\\Emora Webapp\\\\backend\"; $env:PYTHONIOENCODING=\"utf-8\"; .\\\\.venv\\\\Scripts\\\\python ml/train.py ml/data/raw/emotion_dataset.csv)",
+      "PowerShell(Stop-Process -Id 3472,9720,13436 -Force -ErrorAction SilentlyContinue)",
+      "PowerShell(\"Old instances cleared\")"
+    ]
+  }
+}

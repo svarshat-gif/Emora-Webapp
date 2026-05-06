@@ -1,0 +1,276 @@
+
+> emora-frontend@1.0.0 dev
+> next dev
+
+   ▲ Next.js 15.3.0
+   - Local:        http://localhost:3000
+   - Network:      http://172.25.48.1:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ○ Compiling /instrumentation ...
+ ✓ Compiled /instrumentation in 1025ms (20 modules)
+ ✓ Ready in 5.5s
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 617ms (109 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 9.9s (1667 modules)
+ GET / 200 in 11115ms
+ ✓ Compiled in 1796ms (753 modules)
+ ○ Compiling /signup ...
+ ✓ Compiled /signup in 2.9s (1686 modules)
+ GET /signup 200 in 3864ms
+ GET /signup 200 in 153ms
+ GET /signup 200 in 243ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 3.9s (1701 modules)
+ GET /login 200 in 4335ms
+ GET /login 200 in 123ms
+ GET /login 200 in 49ms
+ GET /login 200 in 51ms
+ GET /login 200 in 60ms
+ GET /login 200 in 65ms
+ GET /login 200 in 917ms
+ ✓ Compiled in 1838ms (1687 modules)
+ ✓ Compiled in 1542ms (1701 modules)
+ GET /login 200 in 197ms
+ GET /signup 200 in 751ms
+ GET /signup 200 in 379ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 5s (1743 modules)
+ GET /dashboard 200 in 5675ms
+ GET /dashboard 200 in 198ms
+ GET /dashboard 200 in 69ms
+ GET /dashboard 200 in 50ms
+ ○ Compiling /calendar ...
+ ✓ Compiled /calendar in 3.2s (1764 modules)
+ GET /calendar 200 in 3631ms
+ GET /calendar 200 in 228ms
+ GET /calendar 200 in 82ms
+ ○ Compiling /chat ...
+ ✓ Compiled /chat in 4.4s (1779 modules)
+ GET /chat 200 in 4676ms
+ GET /chat 200 in 241ms
+ GET /calendar 200 in 247ms
+ GET /chat 200 in 78ms
+ GET /dashboard 200 in 173ms
+ ○ Compiling /goals ...
+ ✓ Compiled /goals in 3.8s (1780 modules)
+ GET /goals 200 in 4311ms
+ GET /calendar 200 in 91ms
+ GET /dashboard 200 in 101ms
+ GET /chat 200 in 76ms
+ GET /dashboard 200 in 124ms
+ GET /chat 200 in 59ms
+ ✓ Compiled in 1990ms (1783 modules)
+ GET /chat 200 in 123ms
+ ✓ Compiled in 820ms (1769 modules)
+ ✓ Compiled in 3s (1785 modules)
+ GET /chat 200 in 150ms
+ ✓ Compiled in 4.6s (1787 modules)
+ ✓ Compiled in 1354ms (1787 modules)
+ ✓ Compiled in 1873ms (1780 modules)
+ ✓ Compiled in 3s (1780 modules)
+ ✓ Compiled in 3.8s (1778 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 923ms (979 modules)
+ GET / 200 in 1879ms
+ ✓ Compiled in 2.8s (1778 modules)
+ ✓ Compiled in 1319ms (807 modules)
+ ✓ Compiled in 630ms (807 modules)
+ ✓ Compiled in 925ms (807 modules)
+ ✓ Compiled in 1301ms (808 modules)
+ ✓ Compiled in 598ms (808 modules)
+ ✓ Compiled in 781ms (808 modules)
+ GET /login 200 in 207ms
+ GET /login 200 in 50ms
+ GET /login 200 in 153ms
+ GET /login 200 in 150ms
+ GET /login 200 in 178ms
+ GET /login 200 in 267ms
+ GET /login 200 in 199ms
+ GET /login 200 in 93ms
+ GET /login 200 in 181ms
+ GET /login 200 in 289ms
+ GET /login 200 in 2718ms
+ GET /dashboard 200 in 143ms
+ GET /chat 200 in 106ms
+ ✓ Compiled in 2.7s (1779 modules)
+ ✓ Compiled in 8.7s (1783 modules)
+ ✓ Compiled in 1717ms (1783 modules)
+ GET /login 200 in 2084ms
+ GET /dashboard 200 in 170ms
+ GET /chat 200 in 121ms
+ GET /login 200 in 360ms
+ ✓ Compiled in 6.2s (1783 modules)
+ ✓ Compiled in 1956ms (1769 modules)
+ ✓ Compiled in 3.7s (1769 modules)
+ ✓ Compiled in 3.5s (1783 modules)
+ GET /login 200 in 1250ms
+ GET /dashboard 200 in 115ms
+ GET /chat 200 in 93ms
+ GET /calendar 200 in 130ms
+ GET /chat 200 in 92ms
+ GET /calendar 200 in 59ms
+ ✓ Compiled in 2.5s (1769 modules)
+ ✓ Compiled in 10.3s (1784 modules)
+ ✓ Compiled in 10.8s (1786 modules)
+ ✓ Compiled in 3.6s (1786 modules)
+ ✓ Compiled in 1581ms (1786 modules)
+ ✓ Compiled in 3.5s (1788 modules)
+ ✓ Compiled in 1656ms (1788 modules)
+ ✓ Compiled in 1382ms (1788 modules)
+ ✓ Compiled in 1916ms (1788 modules)
+ ✓ Compiled in 2s (1788 modules)
+ ✓ Compiled in 5.2s (1788 modules)
+ ✓ Compiled in 1270ms (1788 modules)
+ ✓ Compiled in 997ms (1788 modules)
+ GET /calendar 200 in 1866ms
+ ✓ Compiled in 3.9s (1774 modules)
+ ✓ Compiled in 4.1s (1788 modules)
+ ✓ Compiled in 1641ms (1774 modules)
+ ✓ Compiled in 2.3s (1788 modules)
+ ✓ Compiled in 2.4s (1788 modules)
+ ✓ Compiled in 2.4s (1788 modules)
+ ✓ Compiled in 2.1s (1790 modules)
+ ✓ Compiled in 3.4s (1790 modules)
+ ✓ Compiled in 4.9s (1790 modules)
+ ✓ Compiled in 1762ms (1792 modules)
+ ✓ Compiled in 2.8s (1792 modules)
+ ✓ Compiled in 2.1s (1792 modules)
+ ✓ Compiled in 2.1s (1792 modules)
+ ✓ Compiled in 15.4s (1800 modules)
+ ✓ Compiled in 1678ms (1800 modules)
+ GET /calendar 200 in 918ms
+ GET /calendar 200 in 646ms
+ GET /calendar 200 in 869ms
+ GET /calendar 200 in 59ms
+ GET /calendar 200 in 60ms
+ GET /calendar 200 in 76ms
+ GET /calendar 200 in 50ms
+ GET /calendar 200 in 77ms
+ GET /calendar 200 in 61ms
+ GET /calendar 200 in 72ms
+ GET /calendar 200 in 58ms
+ GET /calendar 200 in 74ms
+ GET /calendar 200 in 66ms
+ ○ Compiling /_not-found ...
+ GET /calendar 404 in 62196ms
+ ✓ Compiled /_not-found in 62.4s (1804 modules)
+ ○ Compiling /_error ...
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack failed from C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\server-development.pack.gz: Error: unexpected end of file
+ ✓ Compiled /_error in 26.1s (2124 modules)
+ GET /calendar 404 in 28255ms
+ GET /calendar 200 in 294ms
+ GET /calendar 200 in 51ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.2s (1035 modules)
+ ⨯ [TypeError: Cannot read properties of undefined (reading 'clientModules')] {
+  page: '/'
+}
+ GET / 500 in 5267ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 4.5s (2142 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\server\pages\_document.js'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\Shreyyas\\Downloads\\Emora Webapp\\frontend\\.next\\server\\pages\\_document.js'
+}
+ ✓ Compiled in 73.3s (2091 modules)
+ ✓ Compiled in 7s (2091 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\client-development\3.pack.gz_' -> 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\client-development\3.pack.gz'
+ ✓ Compiled in 8.1s (2091 modules)
+ ✓ Compiled in 4.3s (2091 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\server-development\6.pack.gz_' -> 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\server-development\6.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\client-development\1.pack.gz_' -> 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\client-development\1.pack.gz'
+ GET /dashboard 200 in 7447ms
+ ○ Compiling /settings ...
+ ✓ Compiled /settings in 21.1s (2105 modules)
+ GET /settings 200 in 24235ms
+ ✓ Compiled in 3.4s (1067 modules)
+ GET /settings 200 in 401ms
+ GET /settings 200 in 216ms
+ GET /settings 200 in 136ms
+ GET /settings 200 in 128ms
+ GET /goals 200 in 130ms
+ GET /settings 200 in 55ms
+ GET /dashboard 200 in 132ms
+ GET /chat 200 in 104ms
+ GET /calendar 200 in 116ms
+ GET /chat 200 in 135ms
+ GET /login 200 in 96ms
+ GET /login 200 in 1518ms
+ GET /dashboard 200 in 93ms
+ GET /settings 200 in 94ms
+ ✓ Compiled in 56.3s (2093 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 2.5s (1033 modules)
+ GET / 200 in 4006ms
+ GET /dashboard 200 in 150ms
+ GET /settings 200 in 150ms
+ GET /dashboard 200 in 106ms
+ GET /chat 200 in 124ms
+ ○ Compiling /calendar ...
+ ✓ Compiled /calendar in 6.4s (1033 modules)
+ GET /calendar 200 in 7240ms
+ GET /calendar 200 in 297ms
+ GET /calendar 200 in 2010ms
+ ✓ Compiled in 13.5s (2089 modules)
+ GET /calendar 200 in 211ms
+ ⨯ ./src/app/(dashboard)/calendar/page.tsx
+Error:   [31mx[0m Unexpected token `div`. Expected jsx identifier
+     ,-[[36;1;4mC:\Users\Shreyyas\Downloads\Emora Webapp\frontend\src\app\(dashboard)\calendar\page.tsx[0m:263:1]
+ [2m260[0m |   };
+ [2m261[0m | 
+ [2m262[0m |   return (
+ [2m263[0m |     <div className="max-w-5xl mx-auto flex flex-col gap-6 h-full">
+     : [35;1m     ^^^[0m
+ [2m264[0m | 
+ [2m265[0m |       {/* ── Header ── */}
+ [2m266[0m |       <header className="flex items-end justify-between shrink-0">
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/(dashboard)/calendar/page.tsx
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 10.3s (2118 modules)
+ GET /calendar 500 in 10786ms
+ GET /calendar 200 in 604ms
+ GET /calendar 200 in 980ms
+ GET /calendar 200 in 4420ms
+ GET /calendar 200 in 849ms
+ ✓ Compiled in 6.2s (2089 modules)
+ GET /calendar 200 in 1286ms
+ ✓ Compiled in 5.8s (2089 modules)
+ GET /calendar 200 in 273ms
+ ✓ Compiled in 2.5s (2089 modules)
+ GET /calendar 200 in 234ms
+ ✓ Compiled in 4.8s (2089 modules)
+ GET /calendar 200 in 236ms
+ ✓ Compiled in 2.2s (2089 modules)
+ GET /calendar 200 in 129ms
+ ✓ Compiled in 3.3s (2089 modules)
+ GET /calendar 200 in 158ms
+ GET /calendar 200 in 9883ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\client-development\1.pack.gz_' -> 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\client-development\1.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\server-development\4.pack.gz_' -> 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\server-development\4.pack.gz'
+ ✓ Compiled in 3.9s (2089 modules)
+ ✓ Compiled in 17s (2089 modules)
+ ✓ Compiled in 4.9s (2089 modules)
+ ✓ Compiled in 4.7s (2089 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\server-development\0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\client-development\0.pack.gz'
+ GET /calendar 200 in 1706ms
+ GET /calendar 200 in 184ms
+ GET /calendar 200 in 351ms
+ GET /calendar 200 in 479ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /calendar 200 in 3281ms
+ ✓ Compiled in 34.5s (2089 modules)
+ GET /calendar 200 in 2509ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\server-development\0.pack.gz'
+ GET /calendar 200 in 3392ms

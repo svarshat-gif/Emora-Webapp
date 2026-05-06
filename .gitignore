@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.env
+backend/logs/*.log
+
+# ML models (large files)
+backend/ml/models/*.pkl
+backend/ml/data/raw/*.csv
+
+# Node / Next.js
+node_modules/
+.next/
+.env.local
+frontend/.env.local
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
