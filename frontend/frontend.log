@@ -274,3 +274,13 @@ Import trace for requested module:
  GET /calendar 200 in 2509ms
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\server-development\0.pack.gz_' -> 'C:\Users\Shreyyas\Downloads\Emora Webapp\frontend\.next\cache\webpack\server-development\0.pack.gz'
  GET /calendar 200 in 3392ms
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.3.0
+   - Local:        http://localhost:3000
+   - Network:      http://172.25.48.1:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ○ Compiling /instrumentation ...
+ ✓ Compiled /instrumentation in 1300ms (20 modules)
+ ✓ Ready in 8.7s
