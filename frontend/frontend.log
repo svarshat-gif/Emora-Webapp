@@ -284,3 +284,6 @@ Import trace for requested module:
  ○ Compiling /instrumentation ...
  ✓ Compiled /instrumentation in 1300ms (20 modules)
  ✓ Ready in 8.7s
+ ✓ Compiled in 700ms (20 modules)
+   Reload env: .env.local
+ ✓ Compiled in 641ms (20 modules)
