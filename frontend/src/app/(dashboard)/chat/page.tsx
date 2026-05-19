@@ -89,6 +89,7 @@ export default function ChatPage() {
       ]);
     } catch { /* ignore malformed context */ }
   }, []);
+  const [sessionId, setSessionId] = useState<string | null>(null);
   const [savedGoalId, setSavedGoalId] = useState<string | null>(null);
   const [savingGoalId, setSavingGoalId] = useState<string | null>(null);
 
@@ -114,8 +115,10 @@ export default function ChatPage() {
     setIsLoading(true);
 
     try {
-      const res = await chatAPI.sendMessage(text, user?.personality ?? "sera");
+      const res = await chatAPI.sendMessage(text, user?.personality ?? "sera", sessionId ?? undefined);
       const responseText = res.data?.response ?? res.response ?? "I'm here with you.";
+      // Track session so subsequent messages are part of the same conversation
+      if (res.data?.session_id) setSessionId(res.data.session_id);
       setMessages(prev => [...prev, {
         id: (Date.now() + 1).toString(),
         sender: "emora",

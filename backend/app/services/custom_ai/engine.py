@@ -190,6 +190,107 @@ class CustomAIEngine:
 
     # ─────────────────────────────────────────────────────────────────────────
 
+    def _is_conversational_reply(self, message: str, history: List[Dict]) -> bool:
+        """Detect if the user's message is a short reply to an AI question."""
+        if not history:
+            return False
+        msg = message.lower().strip()
+        word_count = len(msg.split())
+        # Short replies (under 15 words) that don't carry a strong intent
+        if word_count > 15:
+            return False
+        reply_indicators = [
+            r"^(no|nah|nope|not really|nothing|none|idk)$",
+            r"(haven'?t|havent|have not|never) (tried|done|thought)",
+            r"^(nothing|nothing (much|really|yet|specific))$",
+            r"^(yes|yeah|yep|sure|ok|okay|alright|fine|go ahead|please|do it)$",
+            r"^(i guess|maybe|sort of|kinda|kind of)$",
+            r"^(tell me|go on|what do you think|like what|such as|for example)$",
+            r"^(i('m| am) (not sure|open|willing|ready|listening|here))$",
+        ]
+        return any(re.search(p, msg) for p in reply_indicators)
+
+    def _gather_conversation_context(self, history: List[Dict], current_entities: List[str], current_emotion: str) -> Tuple[List[str], str]:
+        """Pull entities and emotion from the full conversation so follow-up replies have context."""
+        all_text = " ".join(m["content"] for m in history if m["role"] == "user")
+        hist_entities = self._extract_entities(all_text)
+        hist_emotion = self._detect_emotion(all_text)
+        merged_entities = list(dict.fromkeys(current_entities + hist_entities))
+        best_emotion = current_emotion if current_emotion != "neutral" else hist_emotion
+        return merged_entities, best_emotion
+
+    def _conversational_reply_response(self, message: str, entities: List[str], emotion: str, personality: str, name: Optional[str], ctx: Dict) -> str:
+        """Handle short conversational replies with real advice instead of more questions."""
+        name_str = name if name else "you"
+        msg = message.lower().strip()
+
+        # Affirmative replies — user wants to proceed
+        if re.search(r"^(yes|yeah|yep|sure|ok|okay|alright|go ahead|please|do it|let'?s|let us)", msg):
+            technique = self._pick_technique(emotion, entities, ctx)
+            t_block = self._format_technique(technique, personality, name)
+            intros = {
+                "sera":      f"Alright, {name_str} — let's get into it.\n\n",
+                "motivator": f"That's what I like to hear, {name_str}. Here's your move:\n\n",
+                "rational":  f"Good. Here's the evidence-based approach, {name_str}:\n\n",
+                "luna":      f"Okay, let's do this together, {name_str} 💜\n\n",
+            }
+            return intros.get(personality, intros["sera"]) + t_block
+
+        # "Haven't tried anything" / "nothing" — provide immediate starter advice
+        if re.search(r"(haven'?t|havent|have not|never|not) (tried|done)|^nothing|^none|^no$|^nah$|^not really", msg):
+            technique = self._pick_technique(emotion, entities, ctx)
+            t_block = self._format_technique(technique, personality, name)
+            context_parts = []
+            if any(e in entities for e in ("exams", "studying", "classes")): context_parts.append("academics")
+            if any(e in entities for e in ("internship", "work")): context_parts.append("work")
+            if "relationships" in entities: context_parts.append("relationships")
+            if "anxiety" in entities: context_parts.append("anxiety")
+            if "sleep" in entities: context_parts.append("sleep")
+            context = " and ".join(context_parts) if context_parts else "what you're dealing with"
+
+            intros = {
+                "sera": (
+                    f"That's completely okay, {name_str} — you don't need to have tried anything before coming here. "
+                    f"That's literally what I'm for. Let me give you a starting point for {context} that's backed by real therapeutic research:\n\n"
+                ),
+                "motivator": (
+                    f"Good — clean slate, {name_str}. No bad habits to unlearn. "
+                    f"Here's your first move for {context}:\n\n"
+                ),
+                "rational": (
+                    f"Starting from zero is actually optimal, {name_str} — no confounding variables. "
+                    f"Here's the most evidence-supported first intervention for {context}:\n\n"
+                ),
+                "luna": (
+                    f"That's totally fine, {name_str} 💙 Everyone starts somewhere and right now is a great time to start. "
+                    f"Here's something gentle but effective for {context}:\n\n"
+                ),
+            }
+            closings = {
+                "sera":      f"\n\nTry this once today — even imperfectly. Then tell me how it felt.",
+                "motivator": f"\n\nDo it today. Not tomorrow. Report back.",
+                "rational":  f"\n\nApply once and observe. That's your first data point.",
+                "luna":      f"\n\nGive it a try when you feel ready 💜 I'm right here.",
+            }
+            return intros.get(personality, intros["sera"]) + t_block + closings.get(personality, closings["sera"])
+
+        # Generic short reply — provide a technique based on conversation context
+        technique = self._pick_technique(emotion, entities, ctx)
+        t_block = self._format_technique(technique, personality, name)
+        intros = {
+            "sera":      f"I hear you, {name_str}. Here's something concrete that I think can help:\n\n",
+            "motivator": f"Got it, {name_str}. Let's get tactical:\n\n",
+            "rational":  f"Understood, {name_str}. Here's the targeted intervention:\n\n",
+            "luna":      f"I'm with you, {name_str} 💜 Let me share something that might help:\n\n",
+        }
+        closings = {
+            "sera":      f"\n\nHow does that land for you? We can adjust based on what feels right.",
+            "motivator": f"\n\nTry it. Come back and tell me what shifted.",
+            "rational":  f"\n\nImplement and observe. We'll iterate from there.",
+            "luna":      f"\n\nDoes that feel doable? We can always try something different 💙",
+        }
+        return intros.get(personality, intros["sera"]) + t_block + closings.get(personality, closings["sera"])
+
     def generate(self, messages: List[Dict], personality: str = "sera") -> str:
         if personality == "blaze": personality = "motivator"
         if personality == "nova":  personality = "rational"
@@ -219,6 +320,10 @@ class CustomAIEngine:
         entities = self._extract_entities(user_message)
         emotion  = self._detect_emotion(user_message)
 
+        # For follow-up messages, enrich context from conversation history
+        if not is_new_session:
+            entities, emotion = self._gather_conversation_context(history, entities, emotion)
+
         stuck_phrases = ["don't know", "dont know", "not sure", "no idea", "you tell me", "you suggest", "help me choose"]
         is_stuck = any(p in user_message.lower() for p in stuck_phrases)
 
@@ -230,6 +335,10 @@ class CustomAIEngine:
 
         if wants_goal_plan:
             return self._goals_plan_response(entities, personality, user_name)
+
+        # Handle short conversational replies (answers to AI questions) with real advice
+        if not is_new_session and self._is_conversational_reply(user_message, history):
+            return self._conversational_reply_response(user_message, entities, emotion, personality, user_name, ctx)
 
         response = ""
         if intent == _I.CRISIS:
@@ -245,8 +354,13 @@ class CustomAIEngine:
         elif intent == _I.VENT:
             response = self._vent_response(user_message, entities, emotion, personality, user_name, ctx)
         else:
-            response = self._general_response(entities, emotion, personality, user_name, ctx)
+            # For follow-up turns with GENERAL intent, provide advice not more questions
+            if not is_new_session and ctx.get("turn_count", 0) > 0:
+                response = self._advice_response(entities, emotion, personality, user_name, ctx)
+            else:
+                response = self._general_response(entities, emotion, personality, user_name, ctx)
 
+        # Only show intake message on the very first message of a new session
         if is_new_session:
             intake = {
                 "sera":      "Before we begin — would you like to vent (I'll listen without judgment), get a specific technique to try right now, or build a longer-term plan together? Just let me know.",
